@@ -4,7 +4,7 @@
 </h1>
 
  <p align="center">
-<img src=''title="Banner">
+<img src='https://github.com/LuizaTempobono/TechRecicle-Reprograma/blob/f1f9aca3b893272cc18577cb4290265a702ceb54/assets/banner.png'title="Banner">
 
 <h2 align="center">
     <br>
