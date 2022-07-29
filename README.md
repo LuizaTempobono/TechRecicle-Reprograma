@@ -4,7 +4,7 @@
 </h1>
 
  <p align="center">
-<img src=''title="Banner">
+<img src='assets/banner.png'title="Banner">
 
 <h2 align="center">
     <br>
