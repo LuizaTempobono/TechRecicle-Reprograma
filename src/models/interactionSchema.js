@@ -3,15 +3,19 @@ const mongoose = require('mongoose');
 const noteSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
     userId: {
-        type: ObjectId,
+        type: String,
         required: true
     },
     collectionPointsId: {
-        type: ObjectId,
+        type: String,
         required: true
     },
     discardedEwaste: {
         type: Array,
+        required: true
+    },
+    done: {
+        type: Boolean,
         required: true
     },
     discardedAt: {

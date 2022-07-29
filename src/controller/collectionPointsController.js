@@ -1,7 +1,5 @@
-//importar to json/banco de dados
 const CollectionPointsSchema = require("../models/collectionPointsSchema")
 
-//Listar todos os pontos de coleta (GET)
 const getAll = async (request, response) => {
     try {
         const allPoints= await CollectionPointsSchema.find()
@@ -14,10 +12,8 @@ const getAll = async (request, response) => {
     }
 }
 
-//Listar pontos de coleta por id (GET)
 const getById = async (request, response) => {
     try {
-        //identificar o id do parâmetro
         const findId = await CollectionPointsSchema.findById(request.params.id)
         response.status(200).json(findId)
     } catch(error) {
@@ -27,14 +23,16 @@ const getById = async (request, response) => {
     }
 }
 
-//Listar pontos de coleta por nome (GET)
 const getByName = async (request, response) => {
     try {
         const name = request.query.name
         const findName = await CollectionPointsSchema.find({ name: `${name}`})
+        CollectionPointsSchema.find({ name: `${name}`}),(error, data) => {
+            console.log(data)
+        }
                 
         if(findName.length == 0) {
-            throw new Error("Nome não encontrado")
+            throw new Error("Ponto de coleta não encontrado")
         } else if(findName.length > 0) {
             response.status(200).json({
                 "mensagem": "Ponto de coleta encontrado",
@@ -50,7 +48,57 @@ const getByName = async (request, response) => {
     }
 }
 
-//Cadastrar ponto de coleta (POST)
+const getByAddress = async (request, response) => {
+    try {
+        const address = request.query.address
+        CollectionPointsSchema.find({ address : {
+                                        $regex: new RegExp(address)
+                                    }
+                                }, 
+                                { _id: 0, __v: 0,createdAt: 0},
+                                 function (err, data) {
+                                    if(data.length > 0){
+                                        response.status(200).json({message: "Endereço encontrado", data
+                                    })
+                                    }else{
+                                        response.status(500).json({message: "Endereço não encontrado"})
+                                    }
+                                })
+
+    } catch (error) {
+        response.status(500).json({
+            message: error.message
+        })
+        console.log(error)
+    }
+}
+
+const getByEwaste = async (request, response) => {
+    try {
+        const ewaste = request.query.ewaste.toLowerCase()
+        CollectionPointsSchema.find({ ewaste : {
+            $regex: new RegExp(ewaste)
+        }
+    }, 
+    { _id: 0, __v: 0,createdAt: 0},
+     function (err, data) {
+        if(data.length > 0){
+            response.status(200).json({message: "Tipo de resíduo encontrado", data
+        })
+        }else{
+            response.status(500).json({message: "Tipo de resíduo não encontrado"})
+        }
+    })
+        
+
+    } catch (error) {
+        response.status(500).json({
+            message: error.message
+        })
+        console.log(error)
+    }
+}
+
 const createPoint = async (request, response) => {
     try {
         const { 
@@ -75,7 +123,6 @@ const createPoint = async (request, response) => {
                 savedPoint
             })
         }
-
     } catch (error) {
         response.status(500).json({
             message: error.message
@@ -84,7 +131,6 @@ const createPoint = async (request, response) => {
     }
 }
 
-//Atualizar cadastro de um ponto de coleta (PUT)
 const updatePoint = async (request, response) => {
     try {
         const findId = await CollectionPointsSchema.findById(request.params.id)
@@ -115,7 +161,6 @@ const updatePoint = async (request, response) => {
     }      
 }
 
-//Deletar cadastrado de um aluno (DELETE)
 const deletePoint = async (request, response) => {
     try {
         const deletePoint = await CollectionPointsSchema.findByIdAndDelete(request.params.id)
@@ -129,11 +174,12 @@ const deletePoint = async (request, response) => {
     }    
 }
 
-//Exportar as variaveis do controller
 module.exports = {
     getAll,
     getById,
     getByName,
+    getByAddress,
+    getByEwaste,
     createPoint,
     updatePoint,
     deletePoint

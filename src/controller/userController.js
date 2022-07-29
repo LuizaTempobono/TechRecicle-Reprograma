@@ -1,23 +1,19 @@
-//importar o json/banco de dados
 const UserSchema = require("../models/userSchema")
 
-//Listar todos os usuários (GET)
 const getAll = async (request, response) => {
     try {
         const allUsers = await UserSchema.find()
         response.status(200).send(allUsers)({
         "mensagem": "Esses são os usuários cadastrados em nosso sistema",
-        Userschema
+        UserSchema
     })
     } catch (error) {
         console.error(error)
     }
 }
 
-//Listar usuários por id (GET)
 const getById = async (request, response) => {
     try {
-        //identificar o id do parâmetro
         const findId = await UserSchema.findById(request.params.id)
         response.status(200).json(findId)
     } catch(error) {
@@ -27,7 +23,6 @@ const getById = async (request, response) => {
     }
 }
 
-//Listar usuários por nome (GET)
 const getByName = async (request, response) => {
     try {
         const name = request.query.name
@@ -50,22 +45,21 @@ const getByName = async (request, response) => {
     }
 }
 
-//Cadastrar usuário no sistema (POST)
 const createUser = async (request, response) => {
     try {
         const { 
-            name, email, password, address, telephone, cpf
+            name, email, password, address, telephone
         } = request.body
 
         const points = 0
 
-        if (!name || !email || !password || !telephone || !cpf) {
+        if (!name || !email || !password || !telephone) {
             return response
                 .status(400)
                 .json({ message: "Os campos não podem ser vazios" })
         }
 
-        const newUser = await UserSchema.create({ name, email, password, address, telephone, cpf, points })
+        const newUser = await UserSchema.create({ name, email, password, address, telephone, points })
         console.log("Novo usuário cadastrado", newUser)
 
         const savedUser = await newUser.save()
@@ -86,7 +80,6 @@ const createUser = async (request, response) => {
     }
 }
 
-// Atualizar cadastro de um usuário (PUT)
 const updateUser = async (request, response) => {
     try {
         const findId = await UserSchema.findById(request.params.id)
@@ -116,7 +109,6 @@ const updateUser = async (request, response) => {
     }      
 }
 
-//Deletar cadastrado de um aluno (DELETE)
 const deleteUser = async (request, response) => {
     try {
         const deleteUser = await UserSchema.findByIdAndDelete(request.params.id)
@@ -130,7 +122,6 @@ const deleteUser = async (request, response) => {
     }    
 }
 
-//Exportar as variaveis do controller
 module.exports = {
     getAll,
     getById,
