@@ -89,8 +89,7 @@ const getByEwaste = async (request, response) => {
             response.status(500).json({message: "Tipo de resíduo não encontrado"})
         }
     })
-        
-
+    
     } catch (error) {
         response.status(500).json({
             message: error.message
