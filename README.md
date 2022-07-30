@@ -8,11 +8,30 @@
 
 <h2 align="center">
     <br>
-    <p align="center"> Tech Recicle  <p>
+    <p align="center"> ♻️ Tech Recicle ♻️   <p>
 </h2>
 
 ## 💻 Sobre o projeto 
+<p align="justify">
 
+<p>
+O TechRecicle é uma API que visa contribuir para a reciclagem de resíduos eletrônicos, visto que o Brasil é o quinto país que mais produz lixo eletrônico em escala global. Cerca de 2 milhões de toneladas por ano desse material são gerados no Brasil e apenas 3% dessa enorme quantidade é reciclada. 
+</p>
+
+<p>
+O descarte incorreto desse tipo de resíduo provoca consequências tanto ambientais, por meio da contaminação do solo e corpos d'água, quanto sociais, visto que apresentam grandes quantidades de mercúrio, chumbo e cádmio que são prejudiciais para a saúde humana.
+</p>
+
+<p>
+Dado esse cenário, em 2020 foi instituído o Decreto 10.240 que trata sobre a logística reversa de produtos eletroeletrônicos e atribui responsabilidades para as empresas fabricantes, comerciantes e consumidores. Sendo assim, é dever dos consumidores levar seu próprio resíduo eletrônico para o fabricante responsável, comércios ou pontos de coleta adequados. 
+</p>
+
+<p>
+Visando facilitar que os consumidores encontrem os pontos de coleta de resíduo eletrônico mais próximos de sua casa, a API TechRecicle apresenta a possibilidade de filtrar os locais por localização e também pelo tipo de resíduo que cada ponto de coleta aceita.
+</p>
+<p>
+Além disso, foi construído um sistema de pontuação para os usuários que, futuramente, pode ser utilizado para beneficiar as pessoas que mais utilizarem a plataforma, ou seja, que mais descartarem resíduos corretamente.
+</p>
 <br>
 
 <p align="justify">
@@ -23,7 +42,7 @@ API desenvolvida como Projeto Final para a conclusão do curso de Backend [{Repr
 
 ## 🔗 Link 
 
-- [Apresentação](colocar o link da apresentação)
+- [Apresentação](https://docs.google.com/presentation/d/1x-MfD7Awv86iyY2LcJV0Lg90FRNhLhYTqBNLrM9RqNc/edit?usp=sharing)
 
 <br>
 
@@ -39,28 +58,29 @@ API desenvolvida como Projeto Final para a conclusão do curso de Backend [{Repr
 
 ## 📚 Aprendizados
 
+Esse projeto foi desenvolvido com base no CRUD, uma sigla que se refere às operações básicas Create (Criar), Read (Leitura), Update (Atualizar) e Delete (Deletar) que são empregadas para criar e gerenciar elementos de dados em banco de dados relacionais e NoSQL. 
+
+Foi construída uma API REST, com CRUD completo e que utiliza os recursos e dependências descritos a seguir.
+
 <br>
 
-## 🛠️ Tecnologias utilizadas nesse projeto
+## 🛠️ Tecnologias utilizadas 
 
 <br>
 
-Para a construção do projeto, as seguintes tecnologias foram utilizadas:
+As seguintes tecnologias foram empregadas na construção desse projeto:
 
-- [JavaScript](https://www.javascript.com/)
-- [Git/Github](https://github.com/)
 - [Node.js](https://nodejs.org/en/)
 - [MongoDBatlas](https://www.mongodb.com/cloud/atlas)
 - [Postman](https://www.postman.com/)
-- [Vscode](https://code.visualstudio.com/)
-- [heroku](https://dashboard.heroku.com/apps)  
+- [Heroku](https://dashboard.heroku.com/apps)  
 
 ### Pacotes Utilizados 
 
-- [Express](https://expressjs.com/pt-br/)
-- [Nodemon](https://nodemon.io/)
+- [express](https://expressjs.com/pt-br/)
+- [nodemon](https://nodemon.io/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
-- [Mongoose](https://mongoosejs.com/)
+- [mongoose](https://mongoosejs.com/)
 - [cors](https://www.npmjs.com/package/cors)
 
 <br>
@@ -68,7 +88,7 @@ Para a construção do projeto, as seguintes tecnologias foram utilizadas:
 ## 📁 Arquitetura MVC 
 
 ```
- 📁 Projeto-Final-Reprograma
+ 📁 Projeto-Final-TechRecicle
    |
    |-  📁 src
    |    |
@@ -124,7 +144,7 @@ Siga os passos e inclua as informações abaixo:
 
 * local: http://localhost:7090
 
-* Heroku:https://techrecicle.herokuapp.com/
+* Heroku: https://techrecicle.herokuapp.com/
 
     * Utilize o [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/download/) para para chamar e testar os endpoints da API localmente ou via Heroku
 
@@ -236,7 +256,7 @@ Siga os passos e inclua as informações abaixo:
 }
 ```
     
-<br>
+
 ## 🚧 Futuras implementações 
 
 *  Aplicar autenticação;
